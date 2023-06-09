@@ -9,5 +9,14 @@ so you should use FQDN instead of shortcuts.
 Instead of running socat, just run this image:
 
 ```
-docker run --rm -it --net host bobrik/socat <your args>
+docker run --rm -it --net host pigri/socat <your args>
+```
+
+
+## Example
+
+You want to develop something on Mac for Docker
+
+```
+docker run -d -v /var/run/docker.sock:/var/run/docker.sock -p 127.0.0.1:1234:1234 pigri/socat TCP-LISTEN:1234,fork UNIX-CONNECT:/var/run/docker.sock
 ```

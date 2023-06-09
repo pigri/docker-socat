@@ -1,5 +1,5 @@
-FROM alpine:3.1
+FROM alpine:latest
 
-RUN apk --update add socat
+RUN apk --no-cache upgrade && apk --no-cache --update add socat
 
 ENTRYPOINT ["socat"]
